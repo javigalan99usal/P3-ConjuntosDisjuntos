@@ -19,7 +19,7 @@ cTamano:prueba.c rArboles/conjuntosTamano.o
 rArboles/conjuntosTamano.o: rArboles/conjuntosTamano.c rArboles/conjuntos.h
 	gcc -c -g rArboles/conjuntosTamano.c -o rArboles/conjuntosTamano.o
 # Ejercicio 5
-cTamano:prueba.c rArboles/conjuntosAltura.o 
+cAltura:prueba.c rArboles/conjuntosAltura.o 
 	gcc -g prueba.c -DARBOLES rArboles/conjuntosAltura.o -o cAltura
 rArboles/conjuntosAltura.o: rArboles/conjuntosAltura.c rArboles/conjuntos.h
 	gcc -c -g rArboles/conjuntosAltura.c -o rArboles/conjuntosAltura.o

@@ -11,7 +11,7 @@ void crea(particion P)
 {
     int i;
     for (i = 0; i < MAXIMO; i++)
-        P[i] = -1; // Inicialmente todos los elementos son representantes de su clase de equivalencia, árboles de tamaño 1
+        P[i] = -1; // Inicialmente todos los elementos son representantes de su clase de equivalencia, árboles de altura 0 + 1
 }
 ///
 /// Función que busca el representante de la clase de equivalencia de x
@@ -37,14 +37,17 @@ int unir(tipoConjunto x, tipoConjunto y, particion P)
     }
     else // Si x e y son representantes
     {
-        if (P[x] <= P[y]) // Si el árbol de x es más grande que el de y, o sus tamaños son iguales
+        if (P[x] == P[y]) // Si sus alturas son iguales
         {
-            P[x] += P[y]; // Sumo el tamaño de y al de x
-            P[y] = x;     // Hago a x el padre de y
+            P[x] -= 1;      // La altura de x aumenta en 1
+            P[y] = x;       // Hago a x el padre de y
         }
-        else
+        else if (P[x] < P[y]) // Si la altura de x es mayor que la de y
         {
-            P[y] += P[x]; // Sumo el tamaño de x al de y
+            //La altura de x sigue siendo la misma
+            P[y] = x;     // Hago a x el padre de y
+        } else { // Si la altura de y es mayor que la de x
+            //La altura de y sigue siendo la misma
             P[x] = y;     // Hago a y el padre de x
         }
         return 1; // Devuelve VERDADERO
