@@ -14,17 +14,21 @@ void crea(particion P)
         P[i] = -1; // Inicialmente todos los elementos son representantes de su clase de equivalencia, árboles de tamaño 1
 }
 ///
-/// Función que busca el representante de la clase de equivalencia de x
+/// Función que busca el representante de la clase de equivalencia de x (compresión de caminos)
 ///
 tipoConjunto buscar(tipoElemento x, particion P)
 {
-    int i;
+    int i = 0, raiz;
     while (x > -1)  // Mientras no sea representante de una clase de equivalencia
     {
-        i = x;      // Guardo el contenido del nodo hijo, es decir, la posición del nodo padre en la matriz
+        raiz = x;      // Guardo el contenido del nodo hijo, es decir, la posición del nodo padre en la matriz
         x = P[x];   // Comprobar su nodo padre
-    }         
-    return i; // Devuelve el representante
+        i++;
+    }
+    for (i; i<0; i--){ // Compresión de caminos
+        P[i] = raiz;
+    }
+    return raiz; // Devuelve el representante
 }
 ///
 /// Función que une las clases de equivalencia de x e y
