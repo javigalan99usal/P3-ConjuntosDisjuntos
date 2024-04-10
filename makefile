@@ -13,7 +13,13 @@ cArboles:prueba.c rArboles/conjuntos.o
 	gcc -g prueba.c -DARBOLES rArboles/conjuntos.o -o cArboles
 rArboles/conjuntos.o: rArboles/conjuntos.c rArboles/conjuntos.h
 	gcc -c -g rArboles/conjuntos.c -o rArboles/conjuntos.o
-# Ejercicio 4, 5 y 6
+# Ejercicio 4
+cTamano:prueba.c rArboles/conjuntosTamano.o 
+	gcc -g prueba.c -DARBOLES rArboles/conjuntosTamano.o -o cTamano
+rArboles/conjuntosTamano.o: rArboles/conjuntosTamano.c rArboles/conjuntos.h
+	gcc -c -g rArboles/conjuntosTamano.c -o rArboles/conjuntosTamano.o
+
+# Ejercicio 5 y 6
 #  ....
 
 limpiar:
